@@ -1,0 +1,74 @@
+$export-line-width: 0.8% ;
+$dash-length: 1.2% ;
+$dash-gap: 0.8% ;
+$animation-time: 2s ;
+$dash-opacity: .5 ;
+$dash-animation-multiplier: 20 ;
+$country-stroke-width: 0.08% ;
+$countries-fill: #cec6b9 ;
+
+#background-circle {
+  @include border-radius(999999px) ;
+  @include background-clip(padding-box) ;
+  @include single-box-shadow(rgba(0,0,0,0.1), 3px, 3px, 25px) ;
+  position: absolute ;
+
+  background-image: inline-image('blue-gradient.svg') ;
+  .dodgysvgbackgrounds & {
+    @include background( #DBE8F4 linear-gradient(
+      top left,
+      #EDF1F9 0%,
+      #EDF1F9 10%, 
+      #DBE8F4 50%,
+      darken(#D3E1F3, 7%) 100%
+    ) ) ;
+  }
+}
+
+svg {}
+  #arc-overlays-group > path {
+    fill: none ;
+    stroke-opacity: 0 ;
+    .viewing-exports & { stroke: darken($exports, 10%) ; }
+    .viewing-imports & { stroke: darken($imports, 10%) ; }
+    &:hover {
+      stroke-opacity: 0.3 ;
+      .drag-active & { stroke-opacity: 0 ; }
+    }
+  }
+
+  @include keyframes(moving-dashes) {
+    0%   { stroke-dashoffset: 0; }
+    100% { stroke-dashoffset: 0 - $dash-animation-multiplier * ($dash-length + $dash-gap); }
+  }
+
+  #arcs-group > path {
+    .switching-port-type & { display: none ; }
+
+    fill: none ;
+    stroke-opacity: $dash-opacity ;
+    stroke-dasharray: $dash-length, $dash-gap ;
+    stroke-dashoffset: 5 ;
+
+    .viewing-exports & { stroke: darken($exports, 10%) ; }
+    .viewing-imports & { stroke: darken($imports, 10%) ; }
+    
+    &.hovered { stroke-opacity: 1 ; }
+    
+    @include animation(moving-dashes ($dash-animation-multiplier*$animation-time) linear infinite) ;
+  }
+
+  #countries-group > path {
+    fill: $countries-fill ;
+    stroke: darken($countries-fill, 10%) ;
+    stroke-width: $country-stroke-width ;
+
+    &.exporter {
+      fill: $exports ;
+      &.main { fill: $exports-highlight ; }
+    }
+    &.importer {
+      fill: $imports ;
+      &.main { fill: $imports-highlight ; }
+    }
+  }

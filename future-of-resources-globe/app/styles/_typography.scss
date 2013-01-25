@@ -1,0 +1,12 @@
+$sans: 'BentonSans', sans-serif ;
+
+body {
+  font-family: $sans ;
+}
+
+a:link, a:visited {
+  color: $ft-link ;
+}
+a:hover, a:active {
+  color: $ft-link-hover ;
+}

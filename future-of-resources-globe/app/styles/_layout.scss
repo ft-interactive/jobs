@@ -1,0 +1,177 @@
+
+html, body, body>header, body>footer, body>header>h1 {
+  margin: 0 ;
+}
+
+// Occupy the whole viewport
+html, body {
+  height: 100% ;
+  width: 100% ; // fullscreen mode breaks without this!
+  // overflow: hidden ; // disabled during development, to alert me to problems - should be enabled before building
+}
+
+
+////////////////////////////////////////////////////////////
+// HEADER
+////////////////////////////////////////////////////////////
+  // #ig-header {
+  //   display: none ;
+  //   background: $ft-tint-1 ;
+
+  //   border-top: 4px solid $ft-tint-3 ;
+  //   border-bottom: 1px solid $ft-tint-3 ;
+  //   position: relative ;
+  //   z-index: $z-header ;
+
+  //   height: 30px ;
+  //   overflow: hidden ;
+
+  //   &> h1 {
+  //     margin: 0 ;
+  //     color: #434343 ;
+  //     font-size: 12px ;
+  //     line-height: 1 ;
+  //     text-transform: uppercase;
+  //     padding: 8px 10px 8px 8px ;
+  //   }
+
+  //   &> #fullscreen-btn {
+  //     display: none ; // Hidden by default (only unhidden if supported)
+
+  //     font-size: 11px ;
+  //     line-height: 1.1 ;
+
+  //     @include ft-link ;
+
+  //     text-transform: uppercase;
+  //     position: absolute ;
+  //     right: 0 ;
+  //     top: 0 ;
+  //     padding: 8px 10px 8px 8px ;
+      
+      
+      
+
+  //     html.fullscreen & {
+  //       display: block ;
+  //     }
+  //   }
+  // }
+
+
+
+////////////////////////////////////////////////////////////
+// MIDDLE
+////////////////////////////////////////////////////////////
+
+  $sidebar-width: 270px ;
+  $sidebar-padding: 10px ;
+
+  #ig-middle {
+    position: relative ;
+    z-index: $z-middle ;
+  }
+
+    #sidebar {
+      position: absolute ;
+      z-index: $z-sidebar ;
+      width: $sidebar-width ;
+      height: 100% ;
+      padding: 20px 0  0 0;
+    }
+    #main {
+      position: absolute ;
+      top: 0 ;
+      z-index: $z-main ;
+
+      width: 100% ;
+      height: 100% ;
+      padding-left: $sidebar-width ;
+    }
+      #main-inner {
+        z-index: $z-main-inner ;
+        width: 100% ;
+        height: 100% ;
+        position: relative ;
+        overflow: hidden ;
+      }
+        svg {
+          position: relative ; // ensures goes in front of thing
+        }
+
+
+////////////////////////////////////////////////////////////
+// FOOTER
+////////////////////////////////////////////////////////////
+
+  #ig-footer {
+    position: fixed ;
+    bottom: 0 ;
+    left: 0 ;
+    width: 100% ;
+    height: 40px ;
+
+    border-top: 1px solid $ft-tint-3 ;
+    border-bottom: 8px solid $ft-grey ;
+
+    z-index: $z-footer ;
+  }
+
+    #sources-credits {
+      float: left ;
+      position: relative ;
+      z-index: $z-sources ;
+      cursor: pointer ;
+      &> h3 {
+        font: 12px $sans ;
+        line-height: 34px ;
+        @include ft-link ;
+        margin: 0 ;
+        padding: 0 10px  ;
+      }
+      &> div {
+        display: none ;
+      }
+    }
+
+    // #sources-credits, // uncomment this line while styling
+    #sources-credits.expanded {
+      &> h3 {
+        color: $ft-link-hover ;
+      }
+      // This div gets taken out of the flow
+      &> div {
+        display: block ;
+        position: absolute ;
+        top: 0 ;
+
+        // The innermost one gets shifted upwards, and styled
+        &> div {
+          position: absolute ;
+          bottom: 0px  ;
+          border: 1px solid $ft-grey-darker ;
+          padding: 5px ;
+          width: 550px ;
+          font: normal 12px $sans ;
+          background-color: $ft-pink ;
+
+          @include single-box-shadow(rgba(0,0,0,0.1), 1px, 1px, 5px, 0) ;
+
+          a {
+            text-decoration: none ;
+          }
+        }
+      }
+    }
+
+    #footer-logo {
+      float: right ;
+      margin-right: 10px ;
+      &> p {
+        font: bold 12px 'Times New Roman', 'Times', serif ;
+        text-transform: uppercase ;
+        letter-spacing: -0.09em ;
+        line-height: 34px ;
+        margin: 0 ;
+      }
+    }

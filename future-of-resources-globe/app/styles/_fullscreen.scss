@@ -1,0 +1,26 @@
+#fullscreen-button {
+  position: absolute ;
+  top: 10px ;
+  right: 10px  ;
+  z-index: $z-fullscreen-button ;
+  background: $ft-tint-1 inline-image('fullscreen.png') no-repeat 4px 4px ;
+  line-height: 18px ;
+  height: 24px ;
+  overflow: hidden ;
+  padding: 4px 8px 0 24px ;
+  font-size: 10px ;
+  text-transform: uppercase;
+  color: $warm-grey-2 ;
+  cursor: pointer ;
+  @include user-select(none) ;
+
+  &:hover {
+    background-color: desaturate(darken($ft-pink, 5%), 50%) ;
+    background-color: $ft-tint-2 ;
+  }
+  &:active {
+    background-color: darken($ft-tint-2, 2%) ;
+    color: desaturate(darken($warm-grey-2, 6%), 50%) ;
+    @include single-box-shadow(rgba(0,0,0,0.1), 1px, 1px, 5px, 0, inset) ;
+  }
+}

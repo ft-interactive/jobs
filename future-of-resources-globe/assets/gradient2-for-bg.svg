@@ -1,0 +1,13 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 1 1" preserveAspectRatio="none">
+
+
+	<radialGradient id="G" cx="121.7876" cy="143.2153" r="408.3262" gradientUnits="userSpaceOnUse">
+		<stop  offset="0.0491" style="stop-color:#EDF1F9"/>
+		<stop  offset="0.3067" style="stop-color:#DBE8F4"/>
+		<stop  offset="0.9141" style="stop-color:#ADCBE1"/>
+		<stop  offset="1" style="stop-color:#D3E1F3"/>
+	</radialGradient>
+
+<rect x="-0" y="-0" width="101" height="101" fill="url(#G)" />
+</svg>

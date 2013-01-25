@@ -1,0 +1,11 @@
+@mixin ft-link {
+  color: $ft-link ;
+  &:hover { color: $ft-link-hover ; }
+  cursor: pointer ;
+}
+
+@mixin ft-link-reverse {
+  color: $ft-link-hover ;
+  &:hover { color: $ft-link ; }
+  cursor: pointer ;
+}

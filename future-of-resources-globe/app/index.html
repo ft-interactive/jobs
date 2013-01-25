@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>  <html class="no-js ie lt-ie9 lt-ie8 lt-ie7 ie6"> <![endif]-->
+<!--[if IE 7]>     <html class="no-js ie lt-ie9 lt-ie8 ie7"> <![endif]-->
+<!--[if IE 8]>     <html class="no-js ie lt-ie9 ie8"> <![endif]-->
+<!--[if IE 9]>     <html class="no-js ie lt-ie10 ie9"> <![endif]-->
+<!--[if !IE]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
+    <title>Global resources network</title>
+    <meta name="viewport" content="width=device-width">
+
+    <style>
+    html, body { background: #FFF1E0 ; }
+    </style>
+
+    <link rel="stylesheet" href="styles/main.css">
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <!-- build:js scripts/all.js -->
+    
+    <!-- 1: The main boot script -->
+    <script src="scripts/main.js"></script>
+
+    <!-- 2: All vendor libraries (in any order) except jQuery, which has to go before main.js -->
+    <script src="scripts/vendor/modernizr.js"></script>
+    <script src="scripts/vendor/safe-console.js"></script>
+    <script src="scripts/vendor/lodash.custom.js"></script>
+    <script src="scripts/vendor/jquery.mousewheel.js"></script>
+    <!-- <script src="scripts/vendor/spin.js"></script> -->
+    <script src="scripts/vendor/d3.v2.js"></script>
+    <script src="scripts/vendor/rAF.js"></script>
+    <script src="scripts/vendor/jquery.dropkick-1.0.0.js"></script>
+    
+    <!-- 3: All app modules (in any order) -->
+    <script src="scripts/support.js"></script>
+    <script src="scripts/layout.js"></script>
+    <script src="scripts/globe.js"></script>
+    <script src="scripts/sidebar.js"></script>
+    <script src="scripts/utility.js"></script>
+    <script src="scripts/fullscreen.js"></script>
+    <script src="scripts/tooltip.js"></script>
+    <!-- endbuild -->
+  </head>
+  <body>
+
+    <section id="ig-middle">
+      <aside id="sidebar">
+        <div class="sidebar-section">
+          <select id="commodity-select">
+            <!-- <option value="copper">Copper</option> -->
+          </select>
+        </div>
+        <div class="clearfix"></div>
+        <div class="sidebar-section" id="port-type-options">
+          <p>
+            <span class="port-type-options-note">Choose view:</span>
+            <label for="exports-radio">
+              <input type="radio" name="port-type" value="exports" id="exports-radio" checked>
+              Exports
+            </label>
+            <label for="imports-radio">
+              <input type="radio" name="port-type" value="imports" id="imports-radio">
+              Imports
+            </label>
+        </div>
+        <div class="sidebar-section" id="leading-porters"></div>
+        <div class="sidebar-section" id="ports-table"></div>
+      </aside>
+
+      <section id="main">
+        <div id="main-inner">
+          <div id="background-circle"></div>
+
+          <svg id="the-svg" version="1.1">
+            <defs>
+              <clipPath id="globe-clipper">
+                <circle id="globe-clipping-circle" r=""></circle>
+              </clipPath>
+            </defs>
+          </svg>
+
+        </div>
+      </section>
+    </section>
+
+    <footer id="ig-footer">
+        <section id="sources-credits">
+            <h3>Sources and credits</h3>
+            <div>
+              <div id="sources-credits-content">
+                <p><b>Source:</b> Chatham House Resources Trade Database (BACI, COMTRADE)</p>
+                <p>Oilseeds includes the vegetable oils derived from oilseeds; silicon is &lsquo;high purity silicon&rsquo;</p>
+                <p>Interactive graphic by <a href="http://search.ft.com/search?queryText=%22Callum%20Locke%22" target="_top">Callum Locke</a>, <a href="http://search.ft.com/search?queryText=%22Steve%20Bernard%22" target="_top">Steve Bernard</a>, and <a href="http://search.ft.com/search?queryText=%22Emily%20Cadman%22" target="_top">Emily Cadman</a></p>
+              </div>
+            </div>
+        </section>
+    </footer>
+
+    <aside id="overlay">
+      <noscript>
+        <div class="info-box">
+          <p>This interactive graphic requires JavaScript.</p>
+          <p>Please enable JavaScript in your browser's settings, then refresh the page.</p>
+        </div>
+      </noscript>
+    </aside>
+  </body>
+</html>

@@ -1,0 +1,168 @@
+#sidebar {
+
+  abbr {
+    border-bottom: 1px dotted ;
+  }
+  font-size: 13px ;
+
+  position: relative ;
+
+  select, .dk_container {
+    width: $sidebar-width - (2 * $sidebar-padding) ;
+    margin-left: $sidebar-padding ;
+    display: block ;
+  }
+
+  background: $ft-tint-1 ;
+
+  overflow: auto ;
+  overflow-x: hidden ;
+
+}
+
+  .sidebar-section {
+    margin-bottom: 30px ;
+    clear: both ;
+
+    &:last-child {
+      margin-bottom: 0 ;
+    }
+  }
+
+
+  #port-type-options {
+
+    text-align: center;
+
+    .port-type-options-note {
+      font-size: 10px ;
+      text-transform: uppercase;
+      color: #74736c ;
+    }
+    label {
+      margin-left: 12px ;
+
+      input {
+        margin-right: 6px ;
+        position: relative ;
+        top: -2px ;
+      }
+    }
+  }
+
+  #leading-porters {
+    h3 {
+      font: bold 14px $sans ;
+      color: #333 ;
+      margin-left: ($sidebar-padding * 2) ;
+
+    }
+    ul {
+      padding-left: 0 ;
+    }
+    li {
+      padding: 0 ($sidebar-padding * 2) ;
+      font: 12px/32px $sans ;
+      height: 30px ;
+      overflow: hidden ;
+
+      color: #333 ;
+      list-style: none ;
+      cursor: pointer ;
+      border-bottom: 1px solid $warm-grey-1 ;
+
+      clear: both ;
+
+      &> span {
+        float: right ;
+      }
+
+      &.header-row {
+        font-weight: bold;
+      }
+      &.country-row {
+        &> span {
+          
+          .viewing-exports & {
+            color: $exports-highlight ;
+          }
+          .viewing-imports & {
+            color: $imports-highlight ;
+          }
+        }
+        &:hover {
+          background: rgba(0,0,0,0.02) ;
+        }
+        &:active {
+          background: rgba(0,0,0,0.07) ;
+        }
+        &.active-country {
+          background: $ft-tint-2 ;
+          cursor: default ;
+        }
+      }
+    }
+    &.active-country {
+      background: $ft-tint-2 ;
+    }
+  }
+
+
+
+.fake-table {
+
+  h3 {
+    font: normal 24px/1 $sans ;
+    color: $warm-grey-1 ;
+    margin: 0 0 5px 0 ;
+  }
+  margin: 0 ($sidebar-padding * 2) ;
+
+
+  &> p {
+    margin: 0 ;
+    padding: 4px $sidebar-padding 0;
+    font: 12px/2.4 $sans ;
+
+    color: #333 ;
+    list-style: none ;
+    border-bottom: 1px solid $warm-grey-1 ;
+
+    &.explanation {
+      border: none ;
+      font: bold 12px/1.3 $sans ;
+      padding: 0 ;
+      margin-top: 5px ;
+    }
+
+    @include single-transition(background, 0.3s) ;
+    &.active {
+      background: $ft-tint-2 ;
+      @include single-transition(background, 0s) ;
+    }
+    clear: both ;
+
+
+
+    &> span {
+      float: right ;
+    }
+
+    &> span {
+      .viewing-exports & {
+        color: $imports-highlight ;
+      }
+      .viewing-imports & {
+        
+        color: $exports-highlight ;
+      }
+    }
+
+    &.header-row {
+      font-weight: bold ;
+      &> span {
+        color: #333 ;
+      }
+    }
+  }
+}
