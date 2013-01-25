@@ -1,2 +1,3 @@
 Source code and build instructions:
-https://github.com/ft-interactive/jobs/future-of-resources-globe
+https://github.com/ft-interactive/jobs/tree/master/future-of-resources-globe
+
